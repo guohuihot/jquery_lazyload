@@ -85,7 +85,13 @@
         this.each(function() {
             var self = this;
             var $self = $(self);
-
+            // prevent reinitialize
+            if (self.lazyloaded) {
+            	return;
+            } else {
+	            self.lazyloaded = true;
+            }
+            
             self.loaded = false;
 
             /* If no src attribute given use data:uri. */
